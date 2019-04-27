@@ -4,7 +4,7 @@ require 'date'
 
 class GroupDate
   def initialize(dates)
-    @dates = dates
+    @dates = dates.sort { |x, y| x <=> y }
   end
 
   def call
