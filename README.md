@@ -12,3 +12,9 @@ group_date = GroupDate.new(
 
 group_date.call
 ```
+
+## To run test
+
+```bash
+ruby group_date_test.rb
+```
