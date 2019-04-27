@@ -143,5 +143,19 @@ class GroupDateTest < MiniTest::Unit::TestCase
     assert_equal group_date.call,
                  '30 Dec 2017, 30 to 31 Dec 2018 and 03 to 05 Jan 2019'
   end
+
+  def test_five_non_consecutives_random_dates_in_different_month_and_year
+    group_date = GroupDate.new(
+      [
+        Date.parse('29-12-2019'),
+        Date.parse('30-12-2019'),
+        Date.parse('02-01-2020'),
+        Date.parse('03-01-2020'),
+        Date.parse('05-01-2020')
+      ]
+    )
+    assert_equal group_date.call,
+                 '29 to 30 Dec 2019, 02 to 03 Jan and 05 Jan 2020'
+  end
 end
 # rubocop:enable all

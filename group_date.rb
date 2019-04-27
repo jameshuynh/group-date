@@ -85,10 +85,20 @@ class GroupDate
       ].join(' ')
     end
 
-    [
+    final_result = [
       result[0..-2].compact.join(', '),
       result[-1]
     ].compact.reject { |x| x == '' }.join(' and ')
+
+    and_params = final_result.split(' and ')
+    if and_params.length == 1
+      final_result
+    else
+      [
+        and_params[0..-2].compact.join(', '),
+        and_params[-1]
+      ].compact.reject { |x| x == '' }.join(' and ')
+    end
   end
 
   def group_consecutive_dates(list_of_dates)
